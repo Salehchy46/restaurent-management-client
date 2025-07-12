@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from "motion/react"
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
@@ -21,7 +22,9 @@ const Banner = () => {
                     <p className="mb-5">
                         Smart Management. Smoother Service. Satisfied Customers.
                     </p>
-                    <button className="btn btn-primary">Get Started</button>
+                    <Link>
+                        <button className='btn btn-dash'>Get Started</button>
+                    </Link>
                 </div>
             </div>
         </div>
