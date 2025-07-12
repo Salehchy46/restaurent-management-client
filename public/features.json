@@ -1,0 +1,52 @@
+[
+      {
+        "icon": "🍽️",
+        "title": "Diverse Cuisine",
+        "description": "Explore a wide variety of dishes including local favorites, continental specials, and fusion creations."
+      },
+      {
+        "icon": "👨‍🍳",
+        "title": "Expert Chefs",
+        "description": "Our talented chefs craft every dish with passion, precision, and premium ingredients."
+      },
+      {
+        "icon": "🛋️",
+        "title": "Cozy Ambience",
+        "description": "Enjoy a warm and inviting atmosphere perfect for family dinners, dates, or business lunches."
+      },
+      {
+        "icon": "⚡",
+        "title": "Fast Service",
+        "description": "Quick and courteous service to ensure you enjoy your meal without long waits."
+      },
+      {
+        "icon": "🌱",
+        "title": "Fresh Ingredients",
+        "description": "We use farm-fresh and locally-sourced ingredients to maintain the highest quality and taste."
+      },
+      {
+        "icon": "🎶",
+        "title": "Live Music & Events",
+        "description": "Relax with live performances and themed events every weekend."
+      },
+      {
+        "icon": "🍹",
+        "title": "Signature Drinks",
+        "description": "Choose from our exclusive mocktails, cocktails, and fresh juices crafted by professional bartenders."
+      },
+      {
+        "icon": "🧒",
+        "title": "Family Friendly",
+        "description": "Kid-friendly meals and a safe, welcoming environment for the whole family."
+      },
+      {
+        "icon": "🧼",
+        "title": "Hygiene First",
+        "description": "Strict cleanliness protocols and hygienic kitchen practices for your safety and comfort."
+      },
+      {
+        "icon": "🅿️",
+        "title": "Free Parking",
+        "description": "Convenient on-site parking available for dine-in guests."
+      }
+    ]
