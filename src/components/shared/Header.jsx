@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 const Header = () => {
 
     const navLinks = <>
-        <li className='hover:border-b-2'><NavLink className='hover:bg-white active:border-b-2' to='/'>Home</NavLink></li>
+        <li className='hover:border-b-2'><NavLink className='hover:bg-white' to='/'>Home</NavLink></li>
         <li className='hover:border-b-2'><NavLink className='hover:bg-white' to='/menu'>Menu</NavLink></li>
         <li className='hover:border-b-2'><NavLink className='hover:bg-white' to='/'>Home</NavLink></li>
         <li className='hover:border-b-2'><NavLink className='hover:bg-white' to='/'>Home</NavLink></li>

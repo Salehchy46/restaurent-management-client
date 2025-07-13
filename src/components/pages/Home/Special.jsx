@@ -22,13 +22,13 @@ const Special = () => {
                             alt={dish.name}
                             className="rounded-md h-48 w-full object-cover"
                         />
-                        <h3 className="text-xl font-semibold mt-3">{dish.name}</h3>
+                        <h3 className="text-xl text-black font-semibold mt-3">{dish.name}</h3>
                         <span className="text-sm text-orange-600 font-medium">
                             {dish.tag}
                         </span>
-                        <p className="text-gray-500 text-sm mt-2">{dish.description}</p>
+                        <p className="text-black text-sm mt-2">{dish.description}</p>
                         <p className="mt-2 font-bold text-orange-700">৳ {dish.price}</p>
-                        <button className="mt-4 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-full">
+                        <button className="mt-4 bg-orange-500 hover:bg-orange-600 text-black px-4 py-2 rounded-full">
                             Order Now
                         </button>
                     </div>
