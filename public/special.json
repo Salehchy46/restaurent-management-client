@@ -1,0 +1,26 @@
+[
+      {
+        "id": 1,
+        "name": "Grilled Lemon Herb Chicken",
+        "description": "Served with garlic butter veggies and roasted potatoes.",
+        "price": 450,
+        "image": "https://i.ibb.co/qYDD03kc/Simply-Recipes-Best-Chicken-Recipes-LEAD-1-283e0d5a70b341dabc695faa69acbadf.jpg",
+        "tag": "Chef's Pick"
+      },
+      {
+        "id": 2,
+        "name": "Spicy Seafood Paella",
+        "description": "Classic Spanish rice dish with shrimp, mussels, and saffron.",
+        "price": 650,
+        "image": "https://i.ibb.co/DDcMXbNx/opt-aboutcom-coeus-resources-content-migration-serious-eats-seriouseats-com-2019-07-20190618-grilled.jpg",
+        "tag": "Limited Time"
+      },
+      {
+        "id": 3,
+        "name": "Vegan Buddha Bowl",
+        "description": "Quinoa, chickpeas, roasted veggies, and tahini dressing.",
+        "price": 390,
+        "image": "https://i.ibb.co/s96mqkNb/151332257.webp",
+        "tag": "New"
+      }
+    ]
