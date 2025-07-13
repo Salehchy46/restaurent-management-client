@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from "motion/react"
 import { Link } from 'react-router-dom';
 
 const Banner = () => {
@@ -14,10 +13,8 @@ const Banner = () => {
             <div className="hero-overlay" style={{}}></div>
             <div className="hero-content text-neutral-content text-center">
                 <div className="max-w-lg">
-                    <div className='flex items-center'>
-                        <motion.img src="https://i.ibb.co/8gv8ZYHH/download-2.png" animate={{ rotate: 360 }} transition={{ repeat: Infinity }} alt="" className='lg:w-20 lg:block hidden' />
+                    <div className='items-center'>
                         <h1 className="mb-5 lg:text-5xl text-white text-2xl font-bold">You're Welcome</h1>
-                        <motion.img src="https://i.ibb.co/8gv8ZYHH/download-2.png" animate={{ rotate: 360 }} transition={{ repeat: Infinity }} alt="" className='lg:w-20 lg:block hidden' />
                     </div>
                     <p className="mb-5">
                         Smart Management. Smoother Service. Satisfied Customers.
