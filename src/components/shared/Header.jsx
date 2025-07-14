@@ -14,12 +14,7 @@ const Header = () => {
     </>
 
     return (
-        <div className="navbar shadow-sm bg-base-200" style={{
-            backgroundColor: theme === 'light' ? '#f2f2f2' : '#333',
-            color: theme === 'light' ? '#000' : '#fff',
-            padding: '20px',
-            textAlign: 'center',
-        }}>
+        <div className="navbar shadow-sm bg-base-200">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -39,7 +34,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <button onClick={toggleTheme}>
+                <button className='pr-5' onClick={toggleTheme}>
                     <label className="swap swap-rotate">
                         {/* this hidden checkbox controls the state */}
                         <input type="checkbox" className="theme-controller" value={theme === 'light' ? 'dark' : 'light'}/>
