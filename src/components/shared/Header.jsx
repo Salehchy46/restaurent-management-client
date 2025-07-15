@@ -7,10 +7,10 @@ const Header = () => {
     const { theme, toggleTheme } = useContext(ThemeContext);
 
     const navLinks = <>
-        <li className='hover:border-b-2'><NavLink className='hover:bg-white' to='/'>Home</NavLink></li>
-        <li className='hover:border-b-2'><NavLink className='hover:bg-white' to='/menu'>Menu</NavLink></li>
-        <li className='hover:border-b-2'><NavLink className='hover:bg-white' to='/aboutus'>About Us</NavLink></li>
-        <li className='hover:border-b-2'><NavLink className='hover:bg-white' to='/'>Home</NavLink></li>
+        <li className='hover:border-b-2'><NavLink className='' to='/'>Home</NavLink></li>
+        <li className='hover:border-b-2'><NavLink className='' to='/menu'>Menu</NavLink></li>
+        <li className='hover:border-b-2'><NavLink className='' to='/aboutus'>About Us</NavLink></li>
+        <li className='hover:border-b-2'><NavLink className='' to='/contactus'>Contact Us</NavLink></li>
     </>
 
     return (
