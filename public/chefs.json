@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Ayesha Khan",
+    "role": "Head Chef - Main Kitchen",
+    "img": "https://i.ibb.co/Dt3rzkf/chef1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Imran Chowdhury",
+    "role": "Pastry Chef - Bakery & Desserts",
+    "img": "https://i.ibb.co/YZhKphS/chef2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Farah Ahmed",
+    "role": "Sous Chef - Indian Cuisine",
+    "img": "https://i.ibb.co/pzMKdJD/chef3.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Mehedi Hassan",
+    "role": "Grill Master - BBQ Section",
+    "img": "https://i.ibb.co/yN1sbfm/chef4.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Tahmina Nasrin",
+    "role": "Chef de Partie - Continental",
+    "img": "https://i.ibb.co/Bq1xKG5/chef5.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Shahriar Alam",
+    "role": "Sushi Chef - Asian Fusion",
+    "img": "https://i.ibb.co/ZJZ8VK7/chef6.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Rubina Yasmin",
+    "role": "Salad & Cold Station Chef",
+    "img": "https://i.ibb.co/vdYc7Tb/chef7.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Tanvir Rahman",
+    "role": "Tandoor Specialist",
+    "img": "https://i.ibb.co/QdPq0mh/chef8.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Nilufa Sultana",
+    "role": "Chef - Kids Menu & Health Section",
+    "img": "https://i.ibb.co/dQ5Z3mh/chef9.jpg"
+  }
+]
