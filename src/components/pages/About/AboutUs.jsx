@@ -2,7 +2,7 @@ import React from 'react';
 
 const AboutUs = () => {
     return (
-        <div className="card py-12 px-6 text-center">
+        <div className="card px-6 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-orange-500 mb-4">Our Journey</h2>
             <p className="max-w-3xl mx-auto text-base md:text-lg leading-relaxed">
                 Founded in 2012 with a small team and a big vision, our restaurant began as a cozy spot for local food lovers.

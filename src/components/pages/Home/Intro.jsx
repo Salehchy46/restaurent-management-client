@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Intro = () => {
     return (
@@ -18,11 +19,25 @@ const Intro = () => {
 
             {/* Image Section */}
             <div className="flex-1 flex justify-center">
-                <img
-                    src="https://i.ibb.co/4ZB2zLpB/download-3.png"
-                    alt="Restaurant system"
-                    className="w-60 md:w-96 rounded-full shadow-2xl transition-transform hover:scale-105 duration-300"
-                />
+                <div>
+                    <img
+                        src="https://i.ibb.co/4ZB2zLpB/download-3.png"
+                        alt="Restaurant system"
+                        className="w-60 md:w-96 rounded-full shadow-2xl transition-transform hover:scale-105 duration-300"
+                    />
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
+                        <Link>
+                            <button className="bg-orange-600 font-bold text-white px-6 py-3 rounded-full hover:bg-orange-700 transition">
+                                Order Now
+                            </button>
+                        </Link>
+                        <Link>
+                            <button className="bg-white font-bold text-orange-600 border border-orange-600 px-6 py-3 rounded-full hover:bg-orange-100 transition">
+                                Book a Table
+                            </button>
+                        </Link>
+                    </div>
+                </div>
             </div>
         </div>
 
