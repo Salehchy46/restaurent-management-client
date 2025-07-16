@@ -58,8 +58,11 @@ const Header = () => {
                         </svg>
                     </label>
                 </button>
-                <Link to='/login'>
-                    <a className="btn">Login</a>
+                <Link className='mr-2' to='/login'>
+                    <button className="btn">Login</button>
+                </Link>
+                <Link to='/signup'>
+                    <button className="btn">Signup</button>
                 </Link>
             </div>
         </div>

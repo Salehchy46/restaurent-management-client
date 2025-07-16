@@ -2,10 +2,10 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../components/pages/Home/Home";
 import MainLayout from "../components/MainLayout/MainLayout";
 import Login from "../components/pages/Login/Login";
-import Intro from "../components/pages/Home/Intro";
 import Menu from "../components/pages/Menu/Menu";
 import About from "../components/pages/About/About";
 import Contact from "../components/pages/Contact/Contact";
+import SignUp from "../components/pages/SignUp/SignUp";
 
 const router = createBrowserRouter([
     {
@@ -32,7 +32,11 @@ const router = createBrowserRouter([
             {
                 path: '/contactus',
                 element: <Contact></Contact>
-            }
+            },
+            {
+                path: '/signup',
+                element: <SignUp></SignUp>
+            },
         ]
     }
 ])
