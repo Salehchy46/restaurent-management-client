@@ -16,7 +16,7 @@ const Chefs = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
                 {
                     chefs.map((chef, index) => (
-                        <div key={index} className="bg-white shadow-md rounded-xl p-4">
+                        <div key={index} className="shadow-md rounded-xl p-4">
                             <img
                                 src={chef.img}
                                 alt={chef.name}
