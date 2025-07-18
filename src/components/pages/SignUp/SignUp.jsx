@@ -51,7 +51,7 @@ const SignUp = () => {
             setRegErro('Password must be at least 10 Character.');
             return;
         }
-        
+
         signUp(email, password)
             .then(result => {
                 console.log(result.user);
@@ -68,7 +68,7 @@ const SignUp = () => {
         <div className="hero bg-base-200 min-h-96">
             <div className="hero-content flex-col lg:flex-row-reverse my-10">
                 <div className='ml-4 mb-10 lg:m-3'>
-                    <Lottie animationData={GreenLogin}></Lottie>
+                    <Lottie className='w-96' animationData={GreenLogin}></Lottie>
                     <p className="text-red-600 ml-4 text-center">{regError}</p>
                     <p className="text-green-600 ml-4 text-center">{success}</p>
                 </div>
