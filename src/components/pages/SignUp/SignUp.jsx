@@ -23,46 +23,45 @@ const SignUp = () => {
         const number = /[0-9]/.test(password);
         const specialChar = /[!@#$%^&*(|/)]/.test(password);
 
-        signUp(email, password)
-            .then(result => {
-                console.log(result.user);
-            })
-            .catch(error => {
-                console.log(error.message);
-            })
-
         setRegErro('');
         setSuccess('');
 
-        if (password.length < 10) {
-            setRegErro('Password must be at least 10 Character.');
-            return;
-        }
-
+        
         if (!upperCase) {
             setRegErro('Password must contain an Uppercase Character.');
             return;
         }
-
+        
         if (!lowerCase) {
             setRegErro('Password must contain a Lowercase Character.');
             return;
         }
-
+        
         if (!number) {
             setRegErro('Password must contain a Number.');
             return;
         }
-
+        
         if (!specialChar) {
             setRegErro('Password must contain a Special Character.');
             return;
         }
-
-        if (password.length > 9 && upperCase && lowerCase && number && specialChar) {
-            setSuccess('Congratulations! You successfully signed-up');
+        
+        if (password.length < 10) {
+            setRegErro('Password must be at least 10 Character.');
             return;
         }
+        
+        signUp(email, password)
+            .then(result => {
+                console.log(result.user);
+                setSuccess('Congratulations! You successfully signed-up');
+            })
+            .catch(error => {
+                setRegErro(error.message);
+            })
+
+
     }
 
     return (
