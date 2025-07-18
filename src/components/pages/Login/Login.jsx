@@ -4,6 +4,7 @@ import Lottie from 'lottie-react';
 import login from '../../../assets/lotties/login.json'
 import SocialLogins from '../../contexts/AuthContext/SocialLogins';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
 
@@ -41,6 +42,11 @@ const Login = () => {
             .catch(error => {
                 console.log(error);
                 setError(error.message);
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong!",
+                });
             })
     }
 
@@ -65,6 +71,7 @@ const Login = () => {
                                 <button className="btn btn-neutral mt-4">Log-in</button>
                             </fieldset>
                         </form>
+                        <p>Don't you have an account? Please <Link className='font-bold' to='/signup'>Sign up</Link></p>
                         <SocialLogins></SocialLogins>
                     </div>
                 </div>

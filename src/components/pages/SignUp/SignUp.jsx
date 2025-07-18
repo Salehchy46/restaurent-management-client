@@ -4,8 +4,13 @@ import Lottie from 'lottie-react';
 import GreenLogin from '../../../assets/lotties/Greenlogin.json'
 import SocialLogins from '../../contexts/AuthContext/SocialLogins';
 import Swal from 'sweetalert2';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
+
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location?.state || '/';
 
     const { signUp } = useContext(AuthContext);
 
@@ -62,9 +67,15 @@ const SignUp = () => {
                     icon: "success",
                     draggable: false
                 });
+                navigate(from)
             })
             .catch(error => {
                 setRegErro(error.message);
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong!",
+                });
             })
 
 
@@ -90,6 +101,7 @@ const SignUp = () => {
                                 <button className="btn btn-neutral mt-4">Sign-up</button>
                             </fieldset>
                         </form>
+                        <p>Already have an account? Please <Link className='font-bold' to='/login'>Sign in</Link></p>
                         <SocialLogins></SocialLogins>
                     </div>
                 </div>

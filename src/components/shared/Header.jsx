@@ -38,7 +38,7 @@ const Header = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <img src="https://i.ibb.co/XkZkv2kw/download.webp" alt="logo" className='w-20 rounded-full' />
+                <img src="https://i.ibb.co/7xq3m721/download-1.webp" alt="logo" className='w-10 ml-2 rounded-full' />
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

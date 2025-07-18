@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
     return (
         <footer className="footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-10">
-            <img src="https://i.ibb.co/XkZkv2kw/download.webp" alt="logo" className='w-40 rounded-full' />
+            <img src="https://i.ibb.co/7xq3m721/download-1.webp" alt="logo" className='w-20 rounded-full' />
             <nav className="grid grid-flow-col gap-4">
                 <a className="link link-hover">About us</a>
                 <a className="link link-hover">Contact</a>
