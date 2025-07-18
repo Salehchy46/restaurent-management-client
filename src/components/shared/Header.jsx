@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import ThemeContext from '../contexts/ThemeContext/ThemeContext';
+import AuthContext from '../contexts/AuthContext/AuthContext';
 
 const Header = () => {
 
     const { theme, toggleTheme } = useContext(ThemeContext);
+    const { user, logOut } = useContext(AuthContext);
 
     const navLinks = <>
         <li className='hover:border-b-2'><NavLink className='' to='/'>Home</NavLink></li>
@@ -12,6 +14,16 @@ const Header = () => {
         <li className='hover:border-b-2'><NavLink className='' to='/aboutus'>About Us</NavLink></li>
         <li className='hover:border-b-2'><NavLink className='' to='/contactus'>Contact Us</NavLink></li>
     </>
+
+    const handleSignOut = () => {
+        logOut()
+            .then(() => {
+                console.log('User Signed Out Successfully');
+            })
+            .catch(error => {
+                console.log('failed to sign out', error);
+            })
+    }
 
     return (
         <div className="navbar shadow-sm bg-base-200">
@@ -34,10 +46,10 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <button className='pr-5' onClick={toggleTheme}>
+                <button className='mr-4' onClick={toggleTheme}>
                     <label className="swap swap-rotate">
                         {/* this hidden checkbox controls the state */}
-                        <input type="checkbox" className="theme-controller" value={theme === 'light' ? 'dark' : 'light'}/>
+                        <input type="checkbox" className="theme-controller" value={theme === 'light' ? 'dark' : 'light'} />
 
                         {/* sun icon */}
                         <svg
@@ -58,12 +70,24 @@ const Header = () => {
                         </svg>
                     </label>
                 </button>
-                <Link className='mr-2' to='/login'>
-                    <button className="btn">Login</button>
-                </Link>
-                <Link to='/signup'>
-                    <button className="btn">Signup</button>
-                </Link>
+                {
+                    user
+                        ?
+                        <>
+                            <p className='mr-2'>{user.displayName}</p>
+                            <img className='w-10 rounded-full mr-4' src={user.photoURL} alt="User" />
+                            <button className='btn' onClick={handleSignOut}>Sign Out</button>
+                        </>
+                        :
+                        <>
+                            <Link className='mr-2' to='/login'>
+                                <button className="btn">Login</button>
+                            </Link>
+                            <Link to='/signup'>
+                                <button className="btn">Signup</button>
+                            </Link>
+                        </>
+                }
             </div>
         </div>
     );

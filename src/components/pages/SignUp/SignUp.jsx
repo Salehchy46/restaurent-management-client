@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react';
 import AuthContext from '../../contexts/AuthContext/AuthContext';
 import Lottie from 'lottie-react';
 import GreenLogin from '../../../assets/lotties/Greenlogin.json'
+import SocialLogins from '../../contexts/AuthContext/SocialLogins';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
 
@@ -26,27 +28,27 @@ const SignUp = () => {
         setRegErro('');
         setSuccess('');
 
-        
+
         if (!upperCase) {
             setRegErro('Password must contain an Uppercase Character.');
             return;
         }
-        
+
         if (!lowerCase) {
             setRegErro('Password must contain a Lowercase Character.');
             return;
         }
-        
+
         if (!number) {
             setRegErro('Password must contain a Number.');
             return;
         }
-        
+
         if (!specialChar) {
             setRegErro('Password must contain a Special Character.');
             return;
         }
-        
+
         if (password.length < 10) {
             setRegErro('Password must be at least 10 Character.');
             return;
@@ -55,7 +57,11 @@ const SignUp = () => {
         signUp(email, password)
             .then(result => {
                 console.log(result.user);
-                setSuccess('Congratulations! You successfully signed-up');
+                Swal.fire({
+                    title: "Congratulations! You successfully signed-up!",
+                    icon: "success",
+                    draggable: false
+                });
             })
             .catch(error => {
                 setRegErro(error.message);
@@ -84,6 +90,7 @@ const SignUp = () => {
                                 <button className="btn btn-neutral mt-4">Sign-up</button>
                             </fieldset>
                         </form>
+                        <SocialLogins></SocialLogins>
                     </div>
                 </div>
             </div>

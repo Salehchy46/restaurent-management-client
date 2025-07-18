@@ -3,6 +3,7 @@ import AuthContext from '../../contexts/AuthContext/AuthContext';
 import Lottie from 'lottie-react';
 import login from '../../../assets/lotties/login.json'
 import SocialLogins from '../../contexts/AuthContext/SocialLogins';
+import Swal from 'sweetalert2';
 
 const Login = () => {
 
@@ -31,7 +32,11 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 console.log(result.user.email);
-                setSuccess('Login successful!')
+                Swal.fire({
+                    title: "Login successful!",
+                    icon: "success",
+                    draggable: false
+                });
             })
             .catch(error => {
                 console.log(error);
