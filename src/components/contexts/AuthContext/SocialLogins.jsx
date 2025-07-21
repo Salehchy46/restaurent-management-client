@@ -2,29 +2,36 @@ import React, { useContext } from 'react';
 import AuthContext from './AuthContext';
 import { FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const SocialLogins = () => {
 
-    const {googleSignIn, githubSignIn} = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location?.state || '/';
+
+    const { googleSignIn, githubSignIn } = useContext(AuthContext);
 
     const handleGoogleSignIn = () => {
         googleSignIn()
-        .then(result => {
-            console.log(result.user);
-        })
-        .catch(error => {
-            console.log(error.message);
-        })
+            .then(result => {
+                console.log(result.user);
+                navigate(from)
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
     }
 
     const handleGithubSignIn = () => {
         githubSignIn()
-        .then(result => {
-            console.log(result.user);
-        })
-        .catch(error => {
-            console.log(error.message);
-        })
+            .then(result => {
+                console.log(result.user);
+                navigate(from)
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
     }
 
     return (

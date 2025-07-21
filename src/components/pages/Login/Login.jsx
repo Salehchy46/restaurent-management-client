@@ -4,9 +4,13 @@ import Lottie from 'lottie-react';
 import login from '../../../assets/lotties/login.json'
 import SocialLogins from '../../contexts/AuthContext/SocialLogins';
 import Swal from 'sweetalert2';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
+
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location?.state || '/';
 
     const { signIn } = useContext(AuthContext);
 
@@ -38,6 +42,7 @@ const Login = () => {
                     icon: "success",
                     draggable: false
                 });
+                navigate(from)
             })
             .catch(error => {
                 console.log(error);
