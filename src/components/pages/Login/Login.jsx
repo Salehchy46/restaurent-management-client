@@ -12,10 +12,11 @@ const Login = () => {
     const navigate = useNavigate();
     const from = location?.state || '/';
 
-    const { signIn } = useContext(AuthContext);
+    const { signIn, forgetPass } = useContext(AuthContext);
 
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+    const [email, setEmail] = useState('');
 
     const handleLogin = e => {
         e.preventDefault();
@@ -55,6 +56,23 @@ const Login = () => {
             })
     }
 
+    const handleForgetPassword = () => {
+
+        if (!email) {
+            setError('Please enter your email to reset password.');
+            return;
+        }
+
+        forgetPass(email)
+            .then(() => {
+                Swal.fire('Reset link sent!', 'Check your email inbox.', 'success');
+            })
+            .catch((error) => {
+                console.log(error.message);
+                setError(error.message);
+            });
+    };
+
     return (
         <div className="hero bg-base-200 min-h-96">
             <div className="hero-content flex-col lg:flex-row-reverse">
@@ -69,10 +87,24 @@ const Login = () => {
                         <form onSubmit={handleLogin}>
                             <fieldset className="fieldset">
                                 <label className="label">Email</label>
-                                <input name='email' type="email" className="input" placeholder="Email" />
+                                <input 
+                                    name='email' 
+                                    type="email" 
+                                    className="input" 
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    placeholder="Email"
+                                     />
                                 <label className="label">Password</label>
                                 <input name='password' type="password" className="input" placeholder="Password" />
-                                <div><a className="link link-hover">Forgot password?</a></div>
+                                <div>
+                                    <button
+                                        type="button"
+                                        onClick={handleForgetPassword}
+                                        className="link link-hover text-sm mt-2"
+                                    >
+                                        Forgot password?
+                                    </button>
+                                </div>
                                 <button className="btn btn-neutral mt-4">Log-in</button>
                             </fieldset>
                         </form>
