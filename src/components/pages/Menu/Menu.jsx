@@ -28,8 +28,6 @@ const Menu = () => {
 
     return (
         <div className='my-10'>
-
-
             {/* Banner */}
             <div
                 className="hero min-h-44 lg:min-h-96 md:min-h-80 my-8 text-center rounded-xl"

@@ -1,6 +1,17 @@
+import axios from 'axios';
 import React from 'react';
 
 const ContactUs = () => {
+
+    const handleObjection = e => {
+        e.preventDefault();
+        const form = new FormData(e.target);
+        const initialData = Object.fromEntries(form.entries());
+        console.log(initialData);
+
+        axios.post('http://localhost:5000/contactus', initialData)
+    }
+
     return (
         <div className="card py-16 px-6 md:px-20">
             <h2 className="text-3xl font-bold text-orange-500 text-center mb-10">Contact Us</h2>
@@ -27,25 +38,29 @@ const ContactUs = () => {
                 </div>
 
                 {/* Contact Form */}
-                <form className="space-y-4 p-6 rounded-lg shadow-md">
+                <form onSubmit={handleObjection} className="space-y-4 p-6 rounded-lg shadow-md">
                     <input
+                        name='name'
                         type="text"
                         placeholder="Your Name"
                         className="w-full border p-3 rounded"
                         required
                     />
                     <input
+                        name='email'
                         type="email"
                         placeholder="Your Email"
                         className="w-full border p-3 rounded"
                         required
                     />
                     <input
+                        name='subject'
                         type="text"
                         placeholder="Subject"
                         className="w-full border p-3 rounded"
                     />
                     <textarea
+                        name='message'
                         rows="5"
                         placeholder="Your Message"
                         className="w-full border p-3 rounded"
