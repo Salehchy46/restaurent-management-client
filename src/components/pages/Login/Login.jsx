@@ -5,12 +5,14 @@ import login from '../../../assets/lotties/login.json'
 import SocialLogins from '../../contexts/AuthContext/SocialLogins';
 import Swal from 'sweetalert2';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useAxios from '../../../hooks/useAxios';
 
 const Login = () => {
 
     const location = useLocation();
     const navigate = useNavigate();
     const from = location?.state || '/';
+    const readyAxios = useAxios();
 
     const { signIn, forgetPass } = useContext(AuthContext);
 
@@ -38,6 +40,14 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 console.log(result.user.email);
+                const user = { email: email };
+                readyAxios.post('/jwt', user, {
+                    withCredentials: true,
+                })
+                    .then(res => {
+                        console.log(res.data);
+                    })
+                    
                 Swal.fire({
                     title: "Login successful!",
                     icon: "success",
@@ -87,13 +97,13 @@ const Login = () => {
                         <form onSubmit={handleLogin}>
                             <fieldset className="fieldset">
                                 <label className="label">Email</label>
-                                <input 
-                                    name='email' 
-                                    type="email" 
-                                    className="input" 
+                                <input
+                                    name='email'
+                                    type="email"
+                                    className="input"
                                     onChange={(e) => setEmail(e.target.value)}
                                     placeholder="Email"
-                                     />
+                                />
                                 <label className="label">Password</label>
                                 <input name='password' type="password" className="input" placeholder="Password" />
                                 <div>

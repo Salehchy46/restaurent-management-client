@@ -11,6 +11,7 @@ import {
 } from 'firebase/auth';
 import AuthContext from './AuthContext';
 import auth from '../../../firebase/firebase.config';
+import axios from 'axios';
 
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
@@ -44,7 +45,27 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
             console.log('User is authinticated with:', currentUser);
-            setLoading(false);
+
+            if(currentUser?.email) {
+                const user = {email : currentUser.email}
+                axios.post('http://localhost:5000/jwt', user, {
+                    withCredentials: true,
+                })
+                .then(res => {
+                    console.log('login with token', res.data);
+                    setLoading(false);
+                })
+            }
+            else 
+            {
+                axios.post('http://localhost:5000/logout', {}, {
+                    withCredentials: true,
+                })
+                .then(res => {
+                    console.log('logged out', res.data);
+                    setLoading(false)
+                })
+            }
         })
 
         return () => {
