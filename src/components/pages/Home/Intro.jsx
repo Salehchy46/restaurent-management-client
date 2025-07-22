@@ -26,7 +26,7 @@ const Intro = () => {
                         className="w-60 md:w-96 rounded-full shadow-2xl transition-transform hover:scale-105 duration-300"
                     />
                     <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
-                        <Link>
+                        <Link to='/menu'>
                             <button className="bg-orange-600 font-bold text-white px-6 py-3 rounded-full hover:bg-orange-700 transition">
                                 Order Now
                             </button>
