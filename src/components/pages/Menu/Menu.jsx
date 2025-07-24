@@ -1,18 +1,20 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import useAxios from '../../../hooks/useAxios';
 
 const Menu = () => {
     const [items, setItems] = useState([]);
     const [filteredCategory, setFilteredCategory] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState("All");
 
+    const readyAxios = useAxios();
+
     useEffect(() => {
-        axios.get('http://localhost:5000/menu')
+        readyAxios.get('/menu')
             .then(res => {
                 setItems(res.data);
                 setFilteredCategory(res.data);
             });
-    }, []);
+    }, [setItems, setFilteredCategory, readyAxios]);
 
     const handleCategoryChange = (category) => {
         setSelectedCategory(category);
@@ -42,7 +44,7 @@ const Menu = () => {
                     <button
                         key={cat}
                         onClick={() => handleCategoryChange(cat)}
-                        className={`btn ${selectedCategory === cat ? "btn-active" : "btn-outline"}`}>
+                        className={`btn ${selectedCategory === cat ? "btn-active bg-orange-600 text-white" : "btn-active"}`}>
                         {cat}
                     </button>
                 ))}

@@ -9,10 +9,26 @@ const Header = () => {
     const { user, logOut } = useContext(AuthContext);
 
     const navLinks = <>
-        <li className='hover:border-b-2'><NavLink className='' to='/'>Home</NavLink></li>
-        <li className='hover:border-b-2'><NavLink className='' to='/menu'>Menu</NavLink></li>
-        <li className='hover:border-b-2'><NavLink className='' to='/aboutus'>About Us</NavLink></li>
-        <li className='hover:border-b-2'><NavLink className='' to='/contactus'>Contact Us</NavLink></li>
+        <li className=''><NavLink className={({ isActive }) =>
+            isActive
+                ? "border-b-4 border-orange-600 px-3 py-2 rounded"
+                : "px-3 py-2 rounded hover:border-b-0"
+        } to='/'>Home</NavLink></li>
+        <li className=''><NavLink className={({ isActive }) =>
+            isActive
+                ? "border-b-4 border-orange-600 px-3 py-2 rounded"
+                : "px-3 py-2 rounded"
+        } to='/menu'>Menu</NavLink></li>
+        <li className=''><NavLink className={({ isActive }) =>
+            isActive
+                ? "border-b-4 border-orange-600 px-3 py-2 rounded"
+                : "px-3 py-2 rounded"
+        } to='/aboutus'>About Us</NavLink></li>
+        <li className=''><NavLink className={({ isActive }) =>
+            isActive
+                ? "border-b-4 border-orange-600 px-3 py-2 rounded"
+                : "px-3 py-2 rounded"
+        } to='/contactus'>Contact Us</NavLink></li>
     </>
 
     const handleSignOut = () => {
