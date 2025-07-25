@@ -65,7 +65,9 @@ const Menu = () => {
                             <h2 className="font-medium text-xl">{item.foodName}</h2>
                             <p>{item.category}</p>
                             <div className="card-actions justify-end">
-                                <button className="btn btn-primary">Details</button>
+                                <Link to='/menu/:id'>
+                                    <button className="btn btn-primary">Details</button>
+                                </Link>
                             </div>
                         </div>
                     </div>
