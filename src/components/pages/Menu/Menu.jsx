@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useAxios from '../../../hooks/useAxios';
+import { Link } from 'react-router-dom';
 
 const Menu = () => {
     const [items, setItems] = useState([]);
@@ -55,7 +56,7 @@ const Menu = () => {
             </h2>
 
             {/* Menu Cards */}
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                 {filteredCategory.map(item => (
                     <div key={item.id} className="card bg-base-100 h-80 text-center shadow-sm">
                         <figure>
@@ -65,7 +66,7 @@ const Menu = () => {
                             <h2 className="font-medium text-xl">{item.foodName}</h2>
                             <p>{item.category}</p>
                             <div className="card-actions justify-end">
-                                <Link to='/menu/:id'>
+                                <Link to={`/menu/${item._id}`}>
                                     <button className="btn btn-primary">Details</button>
                                 </Link>
                             </div>
