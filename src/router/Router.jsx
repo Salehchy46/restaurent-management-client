@@ -8,6 +8,7 @@ import Contact from "../components/pages/Contact/Contact";
 import SignUp from "../components/pages/SignUp/SignUp";
 import PrivateRouter from "./PrivateRouter";
 import FoodCard from "../components/pages/Menu/FoodCard";
+import BookATable from "../components/pages/Home/BookATable";
 
 const router = createBrowserRouter([
     {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
             {
                 path: '/contactus',
                 element: <Contact></Contact>
+            },
+            {
+                path: '/bookatable',
+                element: <BookATable></BookATable>,
             },
             {
                 path: '/signup',

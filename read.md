@@ -1,12 +1,12 @@
 | Page               | Description                                                                                          |
 | ------------------ | ---------------------------------------------------------------------------------------------------- |
-| **Home**           | Hero section with a banner, introduction, key features, today's special, and call-to-action buttons. |
-| **Menu**           | Browseable menu with filters (e.g., categories: starters, mains, desserts).                          |
+| **Home**          Done | Hero section with a banner, introduction, key features, today's special, and call-to-action buttons. |
+| **Menu**          Done | Browseable menu with filters (e.g., categories: starters, mains, desserts).                          |
 | **Order Online**   | Interactive cart system, food items, quantity adjustments, checkout.                                 |
 | **Reservation**    | Form to book tables with date/time picker and confirmation.                                          |
-| **About Us**       | Restaurant history, chefs, mission, and photos.                                                      |
-| **Contact**        | Contact form, Google Maps, phone, email, opening hours.                                              |
-| **Login/Register** | For customers to view their orders or reservations.                                                  |
+| **About Us**      Done | Restaurant history, chefs, mission, and photos.                                                      |
+| **Contact**       Done | Contact form, Google Maps, phone, email, opening hours.                                              |
+| **Login/Register** Done | For customers to view their orders or reservations.                                                  |
 
 
 | Page                       | Description                                                         |
@@ -22,12 +22,12 @@
 
 | Component               | Purpose                                                              |
 | ----------------------- | -------------------------------------------------------------------- |
-| **Navbar**              | Sticky menu for navigating pages.                                    |
-| **Footer**              | With links, contact info, and social icons.                          |
+| **Navbar**              | Sticky menu for navigating pages.     Done                                |
+| **Footer**              | With links, contact info, and social icons.       Done                   |
 | **MenuCard**            | To display food items with image, name, price, “add to cart” button. |
 | **CartDrawer**          | Slide-out drawer showing current order summary.                      |
 | **Table**               | For admin data display (orders, users, reservations).                |
 | **Modal**               | Confirm deletion or edit item/reservation.                           |
 | **Form Input**          | Custom styled input, select, and date/time pickers.                  |
 | **Toast Notifications** | For feedback (e.g., “Order placed!”, “Error saving…”).               |
-| **Loader/Spinner**      | Shown during API loading.                                            |
+| **Loader/Spinner**      | Shown during API loading.      Done                                      |

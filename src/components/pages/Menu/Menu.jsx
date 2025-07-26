@@ -63,11 +63,15 @@ const Menu = () => {
                             <img src={item.image} alt="Food Item" />
                         </figure>
                         <div className="card-body">
-                            <h2 className="font-medium text-xl">{item.foodName}</h2>
-                            <p>{item.category}</p>
-                            <div className="card-actions justify-end">
+                            <div className=''>
+                                <h2 className="font-medium text-xl">{item.foodName}</h2>
+                            </div>
+                            <div className=''>
+                                <p className={item.available ? 'bg-green-500 rounded-2xl text-white' : 'bg-red-500 rounded-2xl text-white'}>{item.category}</p>
+                            </div>
+                            <div className="card-actions justify-center">
                                 <Link to={`/menu/${item._id}`}>
-                                    <button className="btn btn-primary">Details</button>
+                                    <button className="btn btn-sm btn-active hover:bg-orange-600 hover:text-white">Details</button>
                                 </Link>
                             </div>
                         </div>

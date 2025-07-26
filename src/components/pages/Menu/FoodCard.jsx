@@ -36,7 +36,9 @@ const FoodCard = () => {
                 <div className='bg-white text-black p-10 rounded-xl shadow-2xl text-left flex'>
                     <div className=''>
                         <h1 className="lg:text-5xl md:text-3xl text-xl font-bold">{foodName}</h1>
-                        <p className="font-bold text-orange-600">Price : ${price}</p>
+                        <div className='py-3'>
+                            <p className=" font-bold text-orange-600">Price : ${price}</p>
+                        </div>
                         <p className="">Category : {category}</p>
                         <p className="">Chef : {chef}</p>
                         <p className="">Restaurant : {restaurant}</p>
@@ -56,11 +58,11 @@ const FoodCard = () => {
                         </div>
                     </div>
                     <div className='pl-3'>
-                        { available === true ? <div className="badge badge-success"><SiTicktick/></div> : <div className="badge badge-warning"><CgUnavailable></CgUnavailable></div>}
+                        { available === true ? <div className="badge bg-green-500 text-white"><SiTicktick/></div> : <div className="badge bg-red-500 text-white"><CgUnavailable></CgUnavailable></div>}
                     </div>
                 </div>
             </div>
-            <button className="btn btn-active w-1/2 mt-10 hover:bg-orange-600">Order Now</button>
+            <button className="btn btn-active w-1/2 mt-10 hover:bg-orange-600">Add to Cart</button>
         </div>
     );
 };

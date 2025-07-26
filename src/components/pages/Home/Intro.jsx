@@ -31,7 +31,7 @@ const Intro = () => {
                                 Order Now
                             </button>
                         </Link>
-                        <Link>
+                        <Link to='/bookatable'>
                             <button className="bg-white font-bold text-orange-600 border border-orange-600 px-6 py-3 rounded-full hover:bg-orange-100 transition">
                                 Book a Table
                             </button>
