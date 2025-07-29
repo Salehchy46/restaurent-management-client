@@ -3,6 +3,8 @@ import useAxios from '../../../hooks/useAxios';
 import { Link } from 'react-router-dom';
 
 const Menu = () => {
+
+    // set data by state
     const [items, setItems] = useState([]);
     const [filteredCategory, setFilteredCategory] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState("All");
@@ -10,31 +12,30 @@ const Menu = () => {
     const [pageCount, setPageCount] = useState(0);
     const [currentPage, setCurrentPage] = useState(0);
 
-    const numberOfPages = Math.ceil(pageCount / itemsPerPage);
-
+    const numberOfPages = Math.ceil(pageCount / itemsPerPage) || 0;
     const pages = [...Array(numberOfPages).keys()];
 
     const readyAxios = useAxios();
 
-    //All PRoduccts
+    // Load products by page and size
     useEffect(() => {
-        readyAxios.get(`/menu?page=${currentPage}&size=${itemsPerPage}`)
+        readyAxios.get(`/menuByPage?page=${currentPage}&size=${itemsPerPage}`)
             .then(res => {
                 setItems(res.data);
                 setFilteredCategory(res.data);
-                setItemsPerPage(res.data)
+                console.log(res.data);
             });
     }, [readyAxios, currentPage, itemsPerPage]);
 
-    //Product Pages from server
+    // Load total item count for pagination
     useEffect(() => {
-        fetch('http://localhost:5000/productPages')
-        .then(res => res.json())
-        .then(data => {
-            setPageCount(data.count)
-        })
-        }, [])
+        readyAxios.get('/productpages')
+            .then(res => {
+                setPageCount(res.data.count);
+            });
+    }, [readyAxios]);
 
+    // Handle category filter
     const handleCategoryChange = (category) => {
         setSelectedCategory(category);
         if (category === "All") {
@@ -45,13 +46,29 @@ const Menu = () => {
         }
     };
 
-    const handleItemsPerPage = e => {
+    // Handle page size selection
+    const handleItemsPerPage = (e) => {
         const val = parseInt(e.target.value);
         setItemsPerPage(val);
         setCurrentPage(0);
-    }
+    };
 
     const categories = ["All", ...new Set(items.map(item => item.category))];
+
+
+    // handle Perviious  Page 
+    const handlePreviousPage = () => {
+        if(currentPage > 0) {
+            setCurrentPage(currentPage - 1)
+        }
+    }
+
+    //handleNextPage
+    const handleNextPage = () => {
+        if(currentPage < pages.length - 1) {
+            setCurrentPage(currentPage + 1)
+        }
+    }
 
     return (
         <div className='my-10'>
@@ -105,16 +122,16 @@ const Menu = () => {
             {/* Pagination */}
             <div>
                 <p>Current Page: {currentPage}</p>
-                <button className='btn'>Prev</button>
+                <button onClick={handlePreviousPage} className='btn mr-2'>Prev</button>
                 {
                     pages.map(page => <button
                         key={page}
-                        className={currentPage === page ? 'selected' : undefined}
-                        onClick={() => setCurrentPage(page)}>
+                        onClick={() => setCurrentPage(page)}
+                        className={`btn mx-1 ${currentPage === page ? 'bg-orange-600 text-white' : 'btn-outline'}`}>
                         {page}
                     </button>)
                 }
-                <button className='btn'>Next</button>
+                <button onClick={handleNextPage} className='btn mx-2'>Next</button>
                 <select onChange={handleItemsPerPage} value={itemsPerPage} name="" id="">
                     <option value="6">6</option>
                     <option value="10">10</option>
