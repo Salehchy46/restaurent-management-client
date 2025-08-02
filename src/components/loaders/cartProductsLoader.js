@@ -11,9 +11,9 @@ const cartProductsLoader = async () => {
     const loadedProducts = await fetch('http://localhost:5000/productsByIds', {
         method: 'POST',
         headers: {
-            'content-type' : 'applicaiton/json',
+            'Content-Type': 'application/json',
         },
-        body: JSON.stringify(storedCartIds)
+        body: JSON.stringify(storedCartIds),
     });
 
     const products = await loadedProducts.json();
@@ -21,9 +21,9 @@ const cartProductsLoader = async () => {
     const savedCart = [];
 
     // add product by ids
-    for(const id in storedCart) {
+    for (const id in storedCart) {
         const addedProduct = products.find(food => food._id === id);
-        if(addedProduct) {
+        if (addedProduct) {
             const quantity = storedCart[id];
             addedProduct.quantity = quantity;
             savedCart.push(addedProduct);

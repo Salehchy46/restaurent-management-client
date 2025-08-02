@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Menu = () => {
 
+
     // set data by state
     const [items, setItems] = useState([]);
     const [filteredCategory, setFilteredCategory] = useState([]);
@@ -70,6 +71,7 @@ const Menu = () => {
         }
     }
 
+    
     return (
         <div className='my-10'>
             {/* Banner */}

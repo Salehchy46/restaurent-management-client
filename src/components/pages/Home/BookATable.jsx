@@ -36,7 +36,7 @@ const BookTable = () => {
 
   return (
     <div className="hero bg-base-200 py-16 px-4 min-h-screen">
-      <div className="card w-full max-w-2xl mx-auto bg-white shadow-xl rounded-xl">
+      <div className="card w-full max-w-2xl mx-auto shadow-xl rounded-xl">
         <h2 className="text-4xl font-bold text-center pt-6">
          Book a Table
         </h2>
