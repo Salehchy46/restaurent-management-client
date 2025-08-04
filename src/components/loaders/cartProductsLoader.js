@@ -5,7 +5,7 @@ const cartProductsLoader = async () => {
     //getting cart items from addToCart.js
     const storedCart = getShoppingCart();
     const storedCartIds = Object.keys(storedCart);
-    console.log(storedCartIds);
+    console.log(storedCart);
 
     //post ids to backend
     const loadedProducts = await fetch('http://localhost:5000/productsByIds', {

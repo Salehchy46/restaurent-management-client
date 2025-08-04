@@ -9,7 +9,7 @@ import SignUp from "../components/pages/SignUp/SignUp";
 import PrivateRouter from "./PrivateRouter";
 import FoodCard from "../components/pages/Menu/FoodCard";
 import BookATable from "../components/pages/Home/BookATable";
-import cartProductsLoader from "../components/loaders/cartProductsLoader";
+// import cartProductsLoader from "../components/loaders/cartProductsLoader";
 import Cart from "../components/pages/Cart/Cart";
 
 const router = createBrowserRouter([
@@ -33,7 +33,6 @@ const router = createBrowserRouter([
             {
                 path: '/menu/:id',
                 element: <PrivateRouter><FoodCard></FoodCard></PrivateRouter>,
-                loader: cartProductsLoader,
             },
             {
                 path: '/aboutus',

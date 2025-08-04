@@ -110,7 +110,7 @@ const Menu = () => {
                                 <h2 className="font-medium text-xl">{item.foodName}</h2>
                             </div>
                             <div className=''>
-                                <p className={item.available ? 'bg-green-500 rounded-2xl text-white' : 'bg-red-500 rounded-2xl text-white'}>{item.category}</p>
+                                <p className={item.available ? 'text-green-500 rounded-2xl' : 'text-red-500 rounded-2xl'}>{item.category}</p>
                             </div>
                             <div className="card-actions justify-center">
                                 <Link to={`/menu/${item._id}`}>

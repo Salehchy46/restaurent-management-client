@@ -30,8 +30,9 @@ const getShoppingCart = () => {
 
     //get cart from localStorage
     const storedCart = localStorage.getItem('food-cart');
+    console.log(storedCart);
     if(storedCart) {
-        shoppingCart = JSON.parse(storedCart)
+        shoppingCart = JSON.parse(storedCart) || {}
     }
 
     return shoppingCart;

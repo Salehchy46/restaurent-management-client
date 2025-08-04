@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useAxios from '../../../hooks/useAxios';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import { SiTicktick } from "react-icons/si";
 import { CgUnavailable } from "react-icons/cg";
@@ -10,10 +10,10 @@ import Cart from '../Cart/Cart';
 const FoodCard = () => {
 
     // bring data from cartloaderData
-    const loadedCart = useLoaderData();
 
     const [card, setCard] = useState(null);
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState([]);
+    // const [isLoading, setIsLoading] = useState(false);
 
     const { id } = useParams();
     const instantAxios = useAxios();
@@ -24,6 +24,7 @@ const FoodCard = () => {
             .then(res => {
                 console.log(res.data);
                 setCard(res.data);
+                // setIsLoading(true)
             })
     }, [instantAxios, id]);
 
@@ -35,21 +36,23 @@ const FoodCard = () => {
 
     //cart data
     const handleAddToCart = (product) => {
-        let newCart = [];
+        const id = product._id;
 
-        const exists = loadedCart.find(pd => pd._id === product._id)
-        if(!exists) {
-            product.quantity = 1;
-            newCart = [...loadedCart, product]
-        } 
-        else {
-            exists.quantity = exists.quantity + 1;
-            const remaining = loadedCart.filter(pd => pd._id === product.id);
-            newCart = [...remaining, exists];
+        const storedCart = JSON.parse(localStorage.getItem('food-cart')) || {};
+
+        if (storedCart[id]) {
+            storedCart[id] += 1;
+        } else {
+            storedCart[id] = 1;
         }
-        setCart(newCart)
-        addToDb(product._id)
-    }
+
+        localStorage.setItem('food-cart', JSON.stringify(storedCart));
+
+        setCart(storedCart);
+
+        console.log(`Added item ID ${id} to cart`, storedCart);
+    };
+
 
     // clear cart
     const handleClearCart = () => {
@@ -57,6 +60,11 @@ const FoodCard = () => {
         deleteShoppingCart();
     }
 
+    // if(isLoading) {
+    //     return <div>
+    //         <p>Loading</p>
+    //     </div>
+    // }
     return (
         <div className="bg-base-200 min-h-96">
             <div className="hero-content flex-col lg:flex-row md:flex-row lg:items-stretch md:items-stretch gap-5">
@@ -90,16 +98,18 @@ const FoodCard = () => {
                         </div>
                     </div>
                     <div className='pl-3'>
-                        { available === true ? <div className="badge bg-green-500 text-white"><SiTicktick/></div> : <div className="badge bg-red-500 text-white"><CgUnavailable></CgUnavailable></div>}
+                        {available === true ? <div className="badge bg-green-500 text-white"><SiTicktick /></div> : <div className="badge bg-red-500 text-white"><CgUnavailable></CgUnavailable></div>}
                     </div>
                 </div>
             </div>
-            <button onClick={handleAddToCart} className="btn btn-active w-1/2 mt-10 hover:bg-orange-600">Add to Cart</button>
-            <Cart
+            <button onClick={() => handleAddToCart()} className="btn btn-active w-1/2 mt-10 hover:bg-orange-600">
+                Add to Cart
+            </button>
+            {/* <Cart
                 cart={cart}
                 handleClearCart={handleClearCart}
-                >
-            </Cart>
+            >
+            </Cart> */}
         </div>
     );
 };
