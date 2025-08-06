@@ -9,7 +9,7 @@ const ContactUs = () => {
         const initialData = Object.fromEntries(form.entries());
         console.log(initialData);
 
-        axios.post('http://localhost:5000/contactus', initialData)
+        axios.post('//contactus', initialData)
     }
 
     return (

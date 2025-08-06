@@ -11,7 +11,7 @@ const cartProductsLoader = async () => {
     const loadedProducts = await fetch('http://localhost:5000/productsByIds', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
+            'content-type': 'application/json',
         },
         body: JSON.stringify(storedCartIds),
     });
@@ -29,7 +29,6 @@ const cartProductsLoader = async () => {
             savedCart.push(addedProduct);
         }
     }
-
     return savedCart;
 };
 

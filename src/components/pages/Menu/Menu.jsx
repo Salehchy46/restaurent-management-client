@@ -25,7 +25,8 @@ const Menu = () => {
                 setItems(res.data);
                 setFilteredCategory(res.data);
                 console.log(res.data);
-            });
+            })
+            .catch(err => console.log(err))
     }, [readyAxios, currentPage, itemsPerPage]);
 
     // Load total item count for pagination
@@ -33,7 +34,8 @@ const Menu = () => {
         readyAxios.get('/productpages')
             .then(res => {
                 setPageCount(res.data.count);
-            });
+            })
+            .catch(err => console.log(err))
     }, [readyAxios]);
 
     // Handle category filter
