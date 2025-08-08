@@ -1,17 +1,30 @@
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faTrashAlt } from '@fortawesome/fontawesome-free'
+import { useEffect, useState } from "react";
+import { deleteShoppingCart } from "../../utils/addToCart";
 
-const Cart = (cart, handleClearCart, children) => {
+
+const Cart = () => {
+    const [cartData, setCartData] = useState([]);
 
     let quantity = 0;
     let totalPrice = 0;
     let totalShipping = 0;
 
+    useEffect(() => {
+        const data = localStorage.getItem('food-cart');
+        if (data) {
+            setCartData(JSON.parse(data))
+        }
+    }, [])
+
     //for loop to get cart calculation
-    for (const product of cart) {
-        totalPrice = totalPrice + product.price * product.quantity;
-        totalShipping = totalShipping + product.shipping;
-        quantity = quantity + product.quantity;
+    // for (const product of cart) {
+    //     totalPrice = totalPrice + product.price * product.quantity;
+    //     totalShipping = totalShipping + product.shipping;
+    //     quantity = quantity + product.quantity;
+    // }
+
+    const handleClearCart = () => {
+        deleteShoppingCart();
     }
 
     const tax = totalPrice * 5 / 100;
@@ -20,6 +33,13 @@ const Cart = (cart, handleClearCart, children) => {
 
     return (
         <div>
+            <div>
+                {cartData ? (
+                    <p>{cartData.length}</p>
+                ) : (
+                    <p>No user data found in local storage.</p>
+                )}
+            </div>
             <h4>Order</h4>
             <p>Selected Items : {quantity}</p>
             <p>Total Price : {totalPrice}</p>
@@ -28,9 +48,7 @@ const Cart = (cart, handleClearCart, children) => {
             <p>Grand Total : ${grandTotal.toFixed(2)}</p>
             <button onClick={handleClearCart} className='btn hover:bg-orange-500'>
                 <span>Clear Cart</span>
-                {/* <FontAwesomeIcon icon={faTrashAlt} /> */}
             </button>
-            {children}
         </div>
     );
 };
