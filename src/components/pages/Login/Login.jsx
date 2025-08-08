@@ -47,7 +47,7 @@ const Login = () => {
                     .then(res => {
                         console.log(res.data);
                     })
-                    
+
                 Swal.fire({
                     title: "Login successful!",
                     icon: "success",
@@ -79,6 +79,10 @@ const Login = () => {
             })
             .catch((error) => {
                 console.log(error.message);
+                Swal.fire({
+                    title: "Problem Occurs!",
+                    icon: "error",
+                });
                 setError(error.message);
             });
     };

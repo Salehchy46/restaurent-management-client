@@ -100,6 +100,7 @@ const FoodCard = () => {
             <button onClick={() => handleAddToCart(card)} className="btn btn-active w-1/2 mt-10 hover:bg-orange-600">
                 Add to Cart
             </button>
+            <Cart cart={cart}></Cart>
         </div>
     );
 };
