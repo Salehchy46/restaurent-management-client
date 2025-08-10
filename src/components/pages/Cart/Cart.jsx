@@ -1,23 +1,27 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { deleteShoppingCart } from "../../utils/addToCart";
 
 
 const Cart = () => {
-    const [cartData, setCartData] = useState([]);
+    // const [cartData, setCartData] = useState([]);
 
     let quantity = 0;
     let totalPrice = 0;
     let totalShipping = 0;
 
-    useEffect(() => {
-        const data = localStorage.getItem('food-cart');
-        if (data) {
-            setCartData(JSON.parse(data))
-        }
-    }, [])
+    // useEffect(() => {
+    //     const data = localStorage.getItem('food-cart');
+    //     if (data) {
+    //         setCartData(JSON.parse(data))
+    //     } else {
+    //         setCartData([])
+    //     }
+    // }, [])
+
+    // console.log(cartData);
 
     //for loop to get cart calculation
-    // for (const product of cart) {
+    // for (const product of cartData) {
     //     totalPrice = totalPrice + product.price * product.quantity;
     //     totalShipping = totalShipping + product.shipping;
     //     quantity = quantity + product.quantity;
@@ -33,13 +37,13 @@ const Cart = () => {
 
     return (
         <div>
-            <div>
+            {/* <div>
                 {cartData ? (
                     <p>{cartData.length}</p>
                 ) : (
                     <p>No user data found in local storage.</p>
                 )}
-            </div>
+            </div> */}
             <h4>Order</h4>
             <p>Selected Items : {quantity}</p>
             <p>Total Price : {totalPrice}</p>
