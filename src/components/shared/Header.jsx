@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import ThemeContext from '../contexts/ThemeContext/ThemeContext';
 import AuthContext from '../contexts/AuthContext/AuthContext';
+import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css';
 
 const Header = () => {
 
@@ -95,8 +97,13 @@ const Header = () => {
                     user
                         ?
                         <>
-                            <p className='mr-2'>{user.displayName}</p>
-                            <img className='w-10 rounded-full mr-4' src={user.photoURL} alt="User" />
+                            <img data-tooltip-id="my-tooltip"
+                                data-tooltip-content={`Hello! ${user.displayName}`}
+                                data-tooltip-place="bottom" 
+                                className='w-10 rounded-full mr-4' 
+                                src={user.photoURL} 
+                                alt="User" />
+                            <Tooltip id='my-tooltip' className='font-bold text-xl'/>
                             <button className='btn' onClick={handleSignOut}>Sign Out</button>
                         </>
                         :
