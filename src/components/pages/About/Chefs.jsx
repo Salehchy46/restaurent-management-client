@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const Chefs = () => {
 
@@ -10,13 +12,21 @@ const Chefs = () => {
             .then(data => setChefs(data))
     }, [])
 
+    useEffect(() => {
+        Aos.init({
+            duration: 1000,
+            once: false,
+        })
+    }, [])
+
+
     return (
         <div className="card py-12 text-center">
             <h2 className="text-3xl font-bold text-orange-500 mb-8">Meet Our Chefs</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
                 {
                     chefs.map((chef, index) => (
-                        <div key={index} className="shadow-md rounded-xl p-4">
+                        <div key={index} className="shadow-md rounded-xl p-4" data-aos='zoom-out'>
                             <img
                                 src={chef.img}
                                 alt={chef.name}

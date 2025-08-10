@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const Intro = () => {
+
+    useEffect(() => {
+        Aos.init({
+            duration: 1000,
+            once: false,
+        })
+    }, [])
+
     return (
         <div className="card flex flex-col md:flex-row items-center justify-between gap-8 my-10 px-4 md:px-10">
             {/* Text Section */}
-            <div className="flex-1 text-center md:text-left space-y-4">
+            <div className="flex-1 text-center md:text-left space-y-4" data-aos='fade-up-right'>
                 <h2 className="text-3xl md:text-4xl font-bold">
                     Empower Your Restaurant with FlavorFusion
                 </h2>
@@ -18,7 +28,7 @@ const Intro = () => {
             </div>
 
             {/* Image Section */}
-            <div className="flex-1 flex justify-center">
+            <div className="flex-1 flex justify-center" data-aos='fade-up-left'>
                 <div>
                     <img
                         src="https://i.ibb.co/4ZB2zLpB/download-3.png"

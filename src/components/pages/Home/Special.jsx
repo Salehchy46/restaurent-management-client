@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const Special = () => {
 
@@ -10,11 +12,17 @@ const Special = () => {
             .then(data => setSpecial(data))
     }, [setSpecial])
 
+    useEffect(() => {
+        Aos.init({
+            duration: 1000,
+            once: false,
+        })
+    }, [])
 
     return (
         <div className='py-10'>
             <h1 className='text-3xl font-bold text-center pb-10'>Special Dishes are avialable!</h1>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 px-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 px-6" data-aos='fade-down'>
                 {special.map((dish) => (
                     <div key={dish.id} className="shadow-lg rounded-xl p-4">
                         <img

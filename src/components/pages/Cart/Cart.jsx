@@ -44,13 +44,13 @@ const Cart = () => {
                     <p>No user data found in local storage.</p>
                 )}
             </div> */}
-            <h4>Order</h4>
-            <p>Selected Items : {quantity}</p>
-            <p>Total Price : {totalPrice}</p>
-            <p>Shipping : $ {totalShipping}</p>
-            <p>Tax : ${tax.toFixed(2)}</p>
-            <p>Grand Total : ${grandTotal.toFixed(2)}</p>
-            <button onClick={handleClearCart} className='btn hover:bg-orange-500'>
+            <h4 className="text-3xl font-bold my-10">Order</h4>
+            <p className="my-2 text-xl font-semibold">Selected Items : {quantity}</p>
+            <p className="mb-2 text-xl font-semibold">Total Price : {totalPrice}</p>
+            <p className="mb-2 text-xl font-semibold">Shipping : $ {totalShipping}</p>
+            <p className="mb-2 text-xl font-semibold">Tax : ${tax.toFixed(2)}</p>
+            <p className="mb-2 text-xl font-semibold">Grand Total : ${grandTotal.toFixed(2)}</p>
+            <button onClick={handleClearCart} className='btn hover:bg-orange-500 my-5'>
                 <span>Clear Cart</span>
             </button>
         </div>
