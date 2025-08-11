@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import useAxios from '../../../hooks/useAxios';
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
+import { addToDb, deleteShoppingCart } from '../../utils/addToCart';
+import Cart from '../Cart/Cart';
 
 const Menu = () => {
 
+    const loadedCart = useLoaderData();
+    const [cart, setCart] = useState([]);
 
     // set data by state
     const [items, setItems] = useState([]);
@@ -38,6 +42,31 @@ const Menu = () => {
             .catch(err => console.log(err))
     }, [readyAxios]);
 
+    //cart data 
+    const handleAddToCart = (product) => {
+        let newCart = [];
+
+        const exists = loadedCart.find(pd => pd._id === product._id)
+        if (!exists) {
+            product.quantity = 1;
+            newCart = [...loadedCart, product]
+        }
+        else {
+            exists.quantity = exists.quantity + 1;
+            const remaining = loadedCart.filter(pd => pd._id === product.id);
+            newCart = [...remaining, exists];
+        }
+        setCart(newCart)
+        addToDb(product._id)
+    };
+
+    //clear cart
+    const handleClearCart = () => {
+        setCart([]);
+        deleteShoppingCart();
+    }
+
+
     // Handle category filter
     const handleCategoryChange = (category) => {
         setSelectedCategory(category);
@@ -61,19 +90,19 @@ const Menu = () => {
 
     // handle Perviious  Page 
     const handlePreviousPage = () => {
-        if(currentPage > 0) {
+        if (currentPage > 0) {
             setCurrentPage(currentPage - 1)
         }
     }
 
     //handleNextPage
     const handleNextPage = () => {
-        if(currentPage < pages.length - 1) {
+        if (currentPage < pages.length - 1) {
             setCurrentPage(currentPage + 1)
         }
     }
 
-    
+
     return (
         <div className='my-10'>
             {/* Banner */}
@@ -115,6 +144,7 @@ const Menu = () => {
                                 <p className={item.available ? 'text-green-500 rounded-2xl' : 'text-red-500 rounded-2xl'}>{item.category}</p>
                             </div>
                             <div className="card-actions justify-center">
+                                <button className='mr-4 btn btn-sm hover:bg-orange-500' onClick={() => handleAddToCart(item)}>Add to Cart</button>
                                 <Link to={`/menu/${item._id}`}>
                                     <button className="btn btn-sm btn-active hover:bg-orange-600 hover:text-white">Details</button>
                                 </Link>
@@ -122,6 +152,16 @@ const Menu = () => {
                         </div>
                     </div>
                 ))}
+            </div>
+            <div className="">
+                <Cart
+                    cart={cart}
+                    handleClearCart={handleClearCart}
+                >
+                    <Link className='proceed-link' to="/orders">
+                        <button className='btn-proceed'>Review Order</button>
+                    </Link>
+                </Cart>
             </div>
             {/* Pagination */}
             <div>

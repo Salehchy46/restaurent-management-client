@@ -11,6 +11,8 @@ import FoodCard from "../components/pages/Menu/FoodCard";
 import BookATable from "../components/pages/Home/BookATable";
 import cartProductsLoader from "../components/loaders/cartProductsLoader";
 import Cart from "../components/pages/Cart/Cart";
+import Orders from "../components/pages/Orders/Orders";
+import Checkout from "../components/pages/Checkout/Checkout";
 
 const router = createBrowserRouter([
     {
@@ -29,11 +31,11 @@ const router = createBrowserRouter([
             {
                 path: '/menu',
                 element: <PrivateRouter><Menu></Menu></PrivateRouter>,
+                loader: cartProductsLoader,
             },
             {
                 path: '/menu/:id',
                 element: <PrivateRouter><FoodCard></FoodCard></PrivateRouter>,
-                loader: cartProductsLoader,
             },
             {
                 path: '/aboutus',
@@ -53,7 +55,16 @@ const router = createBrowserRouter([
             },
             {
                 path: '/cart',
-                element: <Cart></Cart>
+                element: <Cart></Cart>,
+            },
+            {
+                path: '/orders',
+                element: <Orders></Orders>,
+                loader: cartProductsLoader,
+            },
+            {
+                path: '/checkout',
+                element: <Checkout></Checkout>
             }
         ]
     }

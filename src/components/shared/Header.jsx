@@ -36,6 +36,11 @@ const Header = () => {
                 ? "border-b-4 border-orange-600 px-3 py-2 rounded"
                 : "px-3 py-2 rounded"
         } to='/cart'>Cart</NavLink></li>
+        <li className=''><NavLink className={({ isActive }) =>
+            isActive
+                ? "border-b-4 border-orange-600 px-3 py-2 rounded"
+                : "px-3 py-2 rounded"
+        } to='/orders'>Orders</NavLink></li>
     </>
 
     const handleSignOut = () => {

@@ -1,21 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import useAxios from '../../../hooks/useAxios';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import { SiTicktick } from "react-icons/si";
 import { CgUnavailable } from "react-icons/cg";
-import { addToDb, getShoppingCart } from '../../utils/addToCart';
-import Cart from '../Cart/Cart';
 
 const FoodCard = () => {
 
-    // bring data from cartloaderData
-    const loadedCart = useLoaderData();
-
-    const [card, setCard] = useState(null);
-    const [cart, setCart] = useState([]);
-
-    console.log(cart);
+    const [card, setCard] = useState({});
+    
     // const [isLoading, setIsLoading] = useState(false);
 
     const { id } = useParams();
@@ -31,34 +24,11 @@ const FoodCard = () => {
             })
     }, [instantAxios, id]);
 
-    useEffect(() => {
-        const storedCart = getShoppingCart();
-        setCart(storedCart);
-    }, []);
-
     if (!card) {
         return loading;
     }
 
     const { foodName, image, price, category, restaurant, chef, ingredients, rating, available, preparationTime, calories, spicyLevel } = card;
-
-    //cart data 
-    const handleAddToCart = (product) => {
-        let newCart = [];
-
-        const exists = loadedCart.find(pd => pd._id === product._id)
-        if(!exists) {
-            product.quantity = 1;
-            newCart = [...loadedCart, product]
-        } 
-        else {
-            exists.quantity = exists.quantity + 1;
-            const remaining = loadedCart.filter(pd => pd._id === product.id);
-            newCart = [...remaining, exists];
-        }
-        setCart(newCart)
-        addToDb(product._id)
-    };
 
     return (
         <div className="bg-base-200 min-h-96">
@@ -84,7 +54,7 @@ const FoodCard = () => {
                         <div className="">
                             <p className="">Ingredients:</p>
                             <div className='grid grid-cols-3 gap-2'>
-                                {ingredients.map((ingredient, index) => (
+                                {ingredients?.map((ingredient, index) => (
                                     <p
                                         key={index}
                                         className='border rounded-md px-2 my-1 text-center bg-gray-200 hover:text-blue-200 hover:bg-orange-600'>{ingredient}</p>
@@ -97,10 +67,9 @@ const FoodCard = () => {
                     </div>
                 </div>
             </div>
-            <button onClick={() => handleAddToCart(card)} className="btn btn-active w-1/2 mt-10 hover:bg-orange-600">
-                Add to Cart
-            </button>
-            <Cart cart={cart}></Cart>
+            {/* <button className="btn btn-active w-1/2 mt-10 hover:bg-orange-600">
+                Add to 
+            </button> */}
         </div>
     );
 };
